@@ -7,7 +7,7 @@ Projet d'architecture logicielle dans le cadre de la 4eme année à l'ESIEA
 [![Build Status](https://travis-ci.com/Otherside2710/ProjetJava.svg?branch=master)](https://travis-ci.com/Otherside2710/ProjetJava)
 
 
-[![codecov](https://codecov.io/gh/raphaelgabbay/TP-Java-4A-S2/branch/master/graph/badge.svg)](https://codecov.io/gh/raphaelgabbay/TP-Java-4A-S2)
+
 
 ### Prerequisites
 
