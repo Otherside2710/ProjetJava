@@ -10,3 +10,5 @@ public class Calc {
         return a * b;
     }
 }
+
+//Ceci est un commentaire pour valider le commit.
