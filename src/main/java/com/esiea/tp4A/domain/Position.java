@@ -1,5 +1,9 @@
 package com.esiea.tp4A.domain;
 
+
+import java.util.Objects;
+
+
 public interface Position {
 
     int getX();
@@ -36,5 +40,31 @@ public interface Position {
         public Direction getDirection() {
             return direction;
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            FixedPosition that = (FixedPosition) o;
+            return x == that.x &&
+                y == that.y &&
+                direction == that.direction;
+        }
+
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(x, y, direction);
+        }
+
+        @Override
+        public String toString() {
+            return "FixedPosition{" +
+                "x=" + x +
+                ", y=" + y +
+                ", direction=" + direction +
+                '}';
+        }
+
     }
 }
