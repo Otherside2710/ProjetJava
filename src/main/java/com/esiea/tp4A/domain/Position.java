@@ -1,6 +1,8 @@
 package com.esiea.tp4A.domain;
 
+
 import java.util.Objects;
+
 
 public interface Position {
 
@@ -63,5 +65,6 @@ public interface Position {
                 ", direction=" + direction +
                 '}';
         }
+
     }
 }
