@@ -92,6 +92,7 @@ public class MarsRoverImpl implements MarsRover {
                 case 'b': position=Reculer(position.getDirection()); break;
                 case 'l': position=Rotation_gauche(position.getDirection()); break;
                 case 'r': position=Rotation_droite(position.getDirection()); break;
+                default:
             }}   return position;
     }
 }
