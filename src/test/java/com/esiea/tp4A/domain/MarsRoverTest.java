@@ -63,14 +63,14 @@ public class MarsRoverTest {
     }
 
     @Test
-    void LaserTest(int i){
+    void LaserTest(){
         Position position = Position.of(0,0,Direction.SOUTH);
         listobstacle.add(Position.of(0,-3,Direction.NORTH));
         listobstacle.add(Position.of(1,0,Direction.NORTH));
 
         listobstacle2.add(Position.of(1,0,Direction.NORTH));
 
-        Set<Position> result =MarsRoverImpl.laser(i,position,listobstacle);
+        Set<Position> result =MarsRoverImpl.laser(1,position,listobstacle);
 
         Assertions.assertThat(result).isEqualTo(listobstacle);
 
