@@ -57,6 +57,32 @@ public class MarsRoverImpl implements MarsRover {
         } return i;
     }
 
+    public Set<Position> laser(int portee, Position rover, Set<Position> listobstacle) {
+        for (Position i : listobstacle) {
+            for (int j = 1; j <= portee; j++) {
+                switch (rover.getDirection()) {
+                    case NORTH: if (rover.getY() + j == i.getY() && rover.getX()==i.getX()) { listobstacle.remove(i); return listobstacle;
+                    } break;
+
+                    case SOUTH:
+                        if (rover.getY() - j == i.getY() && rover.getX()==i.getX()) {
+                            listobstacle.remove(i);
+                            return listobstacle;
+                        } break;
+
+                    case WEST:
+                        if (rover.getX() - j == i.getX() && rover.getY()==i.getY()) {
+                            listobstacle.remove(i);
+                            return listobstacle;
+                        }break;
+                    case EAST:
+                        if (rover.getX() + j == i.getX() && rover.getY()==i.getY()) {
+                            listobstacle.remove(i);
+                            return listobstacle;
+                        }break;}}}
+        return listobstacle;
+    }
+
     @Override
     public Position move(String command) {
         for ( int i =0; i<command.length(); i++ ) {
