@@ -1,5 +1,7 @@
 package com.esiea.tp4A.domain;
 
+import java.util.Set;
+
 public class MarsRoverImpl implements MarsRover {
     Position position;
 
@@ -57,7 +59,7 @@ public class MarsRoverImpl implements MarsRover {
         } return i;
     }
 
-    public Set<Position> laser(int portee, Position rover, Set<Position> listobstacle) {
+    public static Set<Position> laser(int portee, Position rover, Set<Position> listobstacle) {
         for (Position i : listobstacle) {
             for (int j = 1; j <= portee; j++) {
                 switch (rover.getDirection()) {

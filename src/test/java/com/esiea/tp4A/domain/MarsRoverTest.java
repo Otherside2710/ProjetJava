@@ -5,12 +5,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MarsRoverTest {
 
+    Set<Position> listobstacle = new HashSet<>();
+    Set<Position> listobstacle2 = new HashSet<>();
     @ParameterizedTest
     @CsvSource
         ({
