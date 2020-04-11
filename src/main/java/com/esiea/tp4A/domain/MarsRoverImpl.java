@@ -1,5 +1,7 @@
 package com.esiea.tp4A.domain;
 
+import java.util.Set;
+
 public class MarsRoverImpl implements MarsRover {
     Position position;
 
@@ -57,6 +59,32 @@ public class MarsRoverImpl implements MarsRover {
         } return i;
     }
 
+    public static Set<Position> laser(int portee, Position rover, Set<Position> listobstacle) {
+        for (Position i : listobstacle) {
+            for (int j = 1; j <= portee; j++) {
+                switch (rover.getDirection()) {
+                    case NORTH: if (rover.getY() + j == i.getY() && rover.getX()==i.getX()) { listobstacle.remove(i); return listobstacle;
+                    } break;
+
+                    case SOUTH:
+                        if (rover.getY() - j == i.getY() && rover.getX()==i.getX()) {
+                            listobstacle.remove(i);
+                            return listobstacle;
+                        } break;
+
+                    case WEST:
+                        if (rover.getX() - j == i.getX() && rover.getY()==i.getY()) {
+                            listobstacle.remove(i);
+                            return listobstacle;
+                        }break;
+                    case EAST:
+                        if (rover.getX() + j == i.getX() && rover.getY()==i.getY()) {
+                            listobstacle.remove(i);
+                            return listobstacle;
+                        }break;}}}
+        return listobstacle;
+    }
+
     @Override
     public Position move(String command) {
         for ( int i =0; i<command.length(); i++ ) {
@@ -66,6 +94,7 @@ public class MarsRoverImpl implements MarsRover {
                 case 'b': position=Reculer(position.getDirection()); break;
                 case 'l': position=Rotation_gauche(position.getDirection()); break;
                 case 'r': position=Rotation_droite(position.getDirection()); break;
+                default:
             }}   return position;
     }
 }
