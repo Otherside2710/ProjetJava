@@ -71,6 +71,18 @@ public class MarsRoverImpl implements MarsRover {
         return 0;
     }
 
+    public static int detectobstacle_backward(Position rover, Set<Position> listobstacle){
+        for (Position y : listobstacle) {
+            switch (rover.getDirection()) {
+                case NORTH: if (((rover.getY() == -49 && y.getY() == 50) || (rover.getY() - 1 == y.getY())) && rover.getX() == y.getX()) { return 1; } break;
+                case SOUTH: if (((rover.getY() == 50 && y.getY() == -49) || (rover.getY() + 1 == y.getY())) && rover.getX() == y.getX()) { return 1; } break;
+                case WEST: if (((rover.getX() == 50 && y.getX() == -49) || (rover.getX() + 1 == y.getX())) && rover.getY() == y.getY()) { return 1; } break;
+                case EAST: if (((rover.getX() == -49 && y.getX() == 50) || (rover.getX() - 1 == y.getX())) && rover.getY() == y.getY()) { return 1; } break;
+            }
+        }
+        return 0;
+    }
+
     @Override
     public Position move(String command) {
         for ( int i =0; i<command.length(); i++ ) {
