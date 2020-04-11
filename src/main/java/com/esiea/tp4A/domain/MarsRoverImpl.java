@@ -1,5 +1,7 @@
 package com.esiea.tp4A.domain;
 
+import java.util.Set;
+
 public class MarsRoverImpl implements MarsRover {
     Position position;
 
@@ -55,6 +57,18 @@ public class MarsRoverImpl implements MarsRover {
             case SOUTH: case WEST: if(i==50){return -49;} else return i+1;
             case NORTH: case EAST: if(i==-49){return 50;} else return i-1;
         } return i;
+    }
+
+    public static int detectobstacle_forward(Position rover, Set<Position> listobstacle){
+        for (Position i : listobstacle) {
+            switch(rover.getDirection()) {
+                case NORTH: if (((rover.getY() == 50 && i.getY() == -49) || (rover.getY() + 1 == i.getY())) && rover.getX() == i.getX()) { return 1; } break;
+                case SOUTH: if (((rover.getY() == -49 && i.getY() == 50) || (rover.getY() - 1 == i.getY())) && rover.getX() == i.getX()) { return 1; } break;
+                case WEST: if (((rover.getX() == -49 && i.getX() == 50) || (rover.getX() - 1 == i.getX())) && rover.getY() == i.getY()) { return 1; } break;
+                case EAST: if (((rover.getX() == 50 && i.getX() == -49) || (rover.getX() + 1 == i.getX())) && rover.getY() == i.getY()) { return 1; } break;
+            }
+        }
+        return 0;
     }
 
     @Override
