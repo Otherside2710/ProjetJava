@@ -1,0 +1,38 @@
+# Concevoir le système initial
+
+# Fonctionnement
+
+## Interactions avec le système
+
+- Les joueurs interagiront au **tour par tour**, car pas besoin de gérer le ping du temps réel. Il n’y aura pas deux actions simultanées, donc pas de conflits de position.
+
+## Stockage des données des joueurs
+
+- Les données seront **cryptées dans la BDD**
+
+## Stockage des données du jeu
+
+### état du jeu
+- Les informations du jeu et de la partie sont stockées dans le jeu en lui même et transmises à la BDD lors de la sauvegarde.
+
+### sauvegarde
+- La sauvegarde se fait **automatiquement** tous les tours, conservant 3 tours de backup, afin de ne pas prendre trop de place par partie.
+
+## Gestion des parties
+
+### Côté serveur
+- Chaque **partie aura un ID différent** et sera communiqué au serveur à chaque action effectuée par les joueurs dans la partie correspondante. Quand une partie est terminée, l’ID est réutilisable
+ 
+### Côté joueur
+- Les joueurs s'authentifieront avec le **login/mot de passe.**
+- Chaque partie aura un ID différent, les joueurs rejoindront une partie en **choisissant parmi leurs différentes parties en cours.** Ils peuvent aussi en **créer une nouvelle**, à laquelle sera attribué un ID disponible.
+- Afin de rejoindre une nouvelle partie, il faut **rentrer l'ID** de cette dite partie, communiquée préalablement par son créateur. Une liste des ID des **parties publiques** est disponible.
+
+## Problèmes des serveurs
+
+### Surcharge des serveurs 
+- Mettre en place une **file d’attente** pour soulager les serveurs, le temps de mettre en place d’autres solutions pour accueillir le surplus de joueurs.
+
+### Plantage des serveurs
+- Si un seul des serveurs plante, les backups des parties prisent en charge par ce serveur sont **chargées par d'autres serveurs** afin de permettre aux joueurs de continuer de jouer.
+- Si tous les serveurs plantent, bah... on peut pas faire grand chose d'autre que d'envoyer un message aux joueurs, nous excusant pour la gène occasionnée
