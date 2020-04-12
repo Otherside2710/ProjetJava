@@ -1,6 +1,7 @@
 package com.esiea.tp4A.domain;
 
 import java.util.List;
+import java.util.Set;
 
 public interface MarsRover {
 
@@ -20,7 +21,7 @@ public interface MarsRover {
 
 
 
-    default Position move(String command) {
+    default Position move(String command, int taille_map, Set<Position> listobstacle, Integer portee) {
         return Position.of(0, 0, Direction.NORTH);
     }
 }
