@@ -17,3 +17,5 @@ Il ne sera plus possible de créer de nouvelles parties une demi-heure avant la 
 ## Comment changer l'API pour que les joueurs utilisant une vieille version du client web puissent toujours jouer ? (rétro-compatibilité)
 
 En utilisant des outils de compatibilité, qui permettront aux navigateurs plus vieux d’être supportés peut importe la version du jeu. Il faut également privilégier le plus possible des modules qui sont largement compatibles, et n’utiliser des modules/packages qui peuvent créer des problèmes de compatibilités UNIQUEMENT s’il n’est pas possible de rajouter un élément autrement.
+
+## Comment avertir les joueurs de la nouveauté une unique fois ?
