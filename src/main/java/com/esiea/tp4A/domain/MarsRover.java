@@ -1,6 +1,7 @@
 package com.esiea.tp4A.domain;
 
 public interface MarsRover {
+
     default MarsRover initialize(Position position) {
         return this;
     }
@@ -14,7 +15,7 @@ public interface MarsRover {
     }
 
     default Position move(String command) {
-        return Position.of(0, 1, Direction.NORTH);
+        return Position.of(0, 0, Direction.NORTH);
     }
 
 }
