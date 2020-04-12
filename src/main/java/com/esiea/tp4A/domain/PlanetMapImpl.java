@@ -19,7 +19,7 @@ public class PlanetMapImpl implements PlanetMap {
         for (int i = 0; i<round(0.15*100*100); i++) {
             int x = (int) (random()*taille)-49;
             int y = (int) (random()*taille)-49;
-            if(!hashSet.contains(Position.of(x, y, null))) {
+            if(hashSet.contains(Position.of(x,y,null)) == false) {
                 hashSet.add(Position.of(x,y,null));
             }
         }
