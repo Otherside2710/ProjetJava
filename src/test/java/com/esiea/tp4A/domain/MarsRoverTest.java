@@ -5,7 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 
-public class AvancerMarsRoverTest {
+public class MarsRoverTest {
     PlanetMapImpl mapTest= new PlanetMapImpl(100);
 
 
