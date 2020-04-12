@@ -19,3 +19,5 @@ Il ne sera plus possible de créer de nouvelles parties une demi-heure avant la 
 En utilisant des outils de compatibilité, qui permettront aux navigateurs plus vieux d’être supportés peut importe la version du jeu. Il faut également privilégier le plus possible des modules qui sont largement compatibles, et n’utiliser des modules/packages qui peuvent créer des problèmes de compatibilités UNIQUEMENT s’il n’est pas possible de rajouter un élément autrement.
 
 ## Comment avertir les joueurs de la nouveauté une unique fois ?
+
+Quand le joueur rencontre pour la première fois un nouvel élément en partie, le jeu affichera un message de présentation de l’élément sur l’écran du joueur, avec ses attribut ( le type de bonus que c’est, sur quoi il agit sa durée).
