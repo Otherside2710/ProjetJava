@@ -4,9 +4,10 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MarsRoverTest {
 
@@ -31,7 +32,6 @@ public class MarsRoverTest {
             "'f', -49, 0, WEST, 50, 0, WEST",
             "'b', 50, 0, WEST, -49, 0, WEST",
             "'f', 48, 0, WEST, 47, 0, WEST",
-
         })
     void MoveTest(String commande, int x, int y, Direction direction, int x_result, int y_result, Direction direction_result ){
         MarsRover marsRover= new MarsRoverImpl(x,y, direction);
