@@ -7,6 +7,7 @@ import static java.lang.StrictMath.random;
 import static java.lang.StrictMath.round;
 
 public class PlanetMapImpl implements PlanetMap {
+
     private int taille;
 
     public PlanetMapImpl(int i) {
