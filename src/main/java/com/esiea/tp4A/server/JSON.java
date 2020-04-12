@@ -17,15 +17,15 @@ public class JSON {
     private static String listplayer(HashMap<String, MarsRoverImpl> rovers, int increment, int size) {
         String message = "";
         for (Map.Entry<String, MarsRoverImpl> entry : rovers.entrySet()) {
-            Position position = entry.getValue().move("");
+            Position position = entry.getValue().move("",100,null,null);
             message += "{\"name\":\"" + entry.getKey() + "\",\"x\":" + position.getX() + ",\"y\":" + position.getY() + "}";
             if(increment != size) message += ",";
         }
         return "[" + message + "]";
     }
     private static String position(MarsRoverImpl rover) {
-        System.out.println(rover.move("").getX());
-        Position position = rover.move("");
+        System.out.println(rover.move("",100,null,null).getX());
+        Position position = rover.move("",100,null,null);
         return position(position.getX(),position.getY(),position.getDirection().name());
     }
     private static String position(int x, int y, String direction) {

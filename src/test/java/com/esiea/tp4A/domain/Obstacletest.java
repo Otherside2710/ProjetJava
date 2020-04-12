@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Obstacletest {
-    Set<Position> obstaclePositions = new HashSet<>();
+    /*Set<Position> obstaclePositions = new HashSet<>();
     Position position = Position.of(0,0,Direction.NORTH);
     Position position2 = Position.of(0,0,Direction.EAST);
     Position position3 = Position.of(0,50,Direction.NORTH);
@@ -62,5 +62,5 @@ public class Obstacletest {
 
         int result4 = MarsRoverImpl.detectobstacle_forward(position5, obstaclePositions);
         Assertions.assertThat(result4).isEqualTo(0);
-    }
+    }*/
 }
