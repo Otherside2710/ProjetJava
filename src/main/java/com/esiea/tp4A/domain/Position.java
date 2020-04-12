@@ -1,8 +1,6 @@
 package com.esiea.tp4A.domain;
 
-
 import java.util.Objects;
-
 
 public interface Position {
 
@@ -51,7 +49,6 @@ public interface Position {
                 direction == that.direction;
         }
 
-
         @Override
         public int hashCode() {
             return Objects.hash(x, y, direction);
@@ -65,6 +62,5 @@ public interface Position {
                 ", direction=" + direction +
                 '}';
         }
-
     }
 }

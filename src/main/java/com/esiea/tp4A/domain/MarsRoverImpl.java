@@ -97,5 +97,3 @@ public class MarsRoverImpl implements MarsRover {
                 default:
             }}   return position; }
 }
-
-

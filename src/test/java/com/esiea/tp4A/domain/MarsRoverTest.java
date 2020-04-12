@@ -4,7 +4,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-
 public class MarsRoverTest {
     PlanetMapImpl mapTest= new PlanetMapImpl(100);
 
@@ -12,6 +11,7 @@ public class MarsRoverTest {
     @ParameterizedTest
     @CsvSource
         ({
+
             "'f', 0,0, NORTH, 0, 1, NORTH",
             "'f', 0,0, SOUTH, 0, -1, SOUTH",
             "'f', 0,0, EAST, 1, 0, EAST",
@@ -22,12 +22,12 @@ public class MarsRoverTest {
             "'f', 12,30, EAST, 13, 30, EAST",
             "'f', 12,30, WEST, 11, 30, WEST",
 
+
         })
     void AvancerTest(String commande, int x, int y, Direction direction, int x_result, int y_result, Direction direction_result ){
         MarsRover marsRover= new MarsRoverImpl(x,y, direction);
         Position position=marsRover.move(commande,mapTest.getTaille(),null,null);
         Assertions.assertThat(position).isEqualTo(Position.of(x_result,y_result,direction_result));
-
     }
 
 }
