@@ -53,8 +53,8 @@ public class CommandeIgnoreMarsRoverTest {
 
 
 
-        MarsRover marsRover= new MarsRoverImpl(x,y, direction);
-        Position position=marsRover.move(commande,mapTest.getTaille(),listobstacle,2);
+        MarsRover marsRover= new MarsRoverImpl(x,y, direction,listobstacle,2,mapTest.getTaille());
+        Position position=marsRover.move(commande);
         Assertions.assertThat(position).isEqualTo(Position.of(x_result,y_result,direction_result));
 
     }

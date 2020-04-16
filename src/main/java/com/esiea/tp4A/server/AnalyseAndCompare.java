@@ -26,6 +26,6 @@ public class AnalyseAndCompare {
     }
     private static void patch(PrintWriter printWriter, RoverInterface roverInterface, String player,String commande) {
         if (!roverInterface.player(player)) JSON.notworkingrequest("Code 404");
-        else { roverInterface.RoverPos(player).move(commande,100,null,null); JSON.workingrequest(printWriter,player,roverInterface); }
+        else { roverInterface.RoverPos(player).move(commande); JSON.workingrequest(printWriter,player,roverInterface); }
     }
 }

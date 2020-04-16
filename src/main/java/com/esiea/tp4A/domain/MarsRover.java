@@ -21,7 +21,7 @@ public interface MarsRover {
 
 
 
-    default Position move(String command, int taille_map, Set<Position> listobstacle, Integer portee) {
+    default Position move(String command) {
         return Position.of(0, 0, Direction.NORTH);
     }
 }
