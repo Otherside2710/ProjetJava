@@ -7,16 +7,17 @@ import static java.lang.StrictMath.random;
 import static java.lang.StrictMath.round;
 
 public class PlanetMapImpl implements PlanetMap {
-
-    private int taille;
+    private final int taille;
+   // private final Set<Position> listobstacle;
 
     public PlanetMapImpl(int i) {
         taille = i;
+      //  listobstacle=obstaclePositions();
     }
 
-    public  int getTaille() {
-        return taille;
-    }
+    public  int getTaille() {return this.taille;}
+
+  //  public Set<Position> getListobstacle(){return this.listobstacle;}
 
     @Override
     public Set<Position> obstaclePositions() {

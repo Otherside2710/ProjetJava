@@ -21,8 +21,8 @@ public class ReculerMarsRoverTest {
             "'b', 12,30, WEST, 13, 30, WEST",
         })
     void ReculerTest(String commande, int x, int y, Direction direction, int x_result, int y_result, Direction direction_result ){
-        MarsRover marsRover= new MarsRoverImpl(x,y, direction);
-        Position position=marsRover.move(commande,mapTest.getTaille(),null,null);
+        MarsRover marsRover= new MarsRoverImpl(x,y, direction,null,null,mapTest.getTaille());
+        Position position=marsRover.move(commande);
         Assertions.assertThat(position).isEqualTo(Position.of(x_result,y_result,direction_result));
 
     }

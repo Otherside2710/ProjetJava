@@ -39,8 +39,8 @@ public class ReculerObstacleMarsRoverTest {
         })
     void ReculerObstacleTest(String commande, int x, int y, Direction direction, int x_result, int y_result, Direction direction_result ){
         listobstacle.add(obs1); listobstacle.add(obs2); listobstacle.add(obs3); listobstacle.add(obs4);
-        MarsRover marsRover= new MarsRoverImpl(x,y, direction);
-        Position position=marsRover.move(commande,mapTest.getTaille(),listobstacle,null);
+        MarsRover marsRover= new MarsRoverImpl(x,y, direction,listobstacle,null,mapTest.getTaille());
+        Position position=marsRover.move(commande);
         Assertions.assertThat(position).isEqualTo(Position.of(x_result,y_result,direction_result));
 
     }
@@ -65,8 +65,8 @@ public class ReculerObstacleMarsRoverTest {
         })
     void ReculerObstacleLimMapTest(String commande, int x, int y, Direction direction, int x_result, int y_result, Direction direction_result ){
         listobstacle.add(obslim1); listobstacle.add(obslim2); listobstacle.add(obslim3); listobstacle.add(obslim4);
-        MarsRover marsRover= new MarsRoverImpl(x,y, direction);
-        Position position=marsRover.move(commande,mapTest.getTaille(),listobstacle,null);
+        MarsRover marsRover= new MarsRoverImpl(x,y, direction,listobstacle,null,mapTest.getTaille());
+        Position position=marsRover.move(commande);
         Assertions.assertThat(position).isEqualTo(Position.of(x_result,y_result,direction_result));
 
     }
