@@ -4,38 +4,35 @@ import java.util.Set;
 
 public class MarsRoverImpl implements MarsRover {
     private final Position position;
-
     private final int taille;
     private final Integer portee;
-    private final Set<Position> listobstacle;
+    private Set<Position> listobstacle;
 
     public MarsRoverImpl(int x, int y, Direction direction, Set<Position> listobstacle, Integer portee, int taille) {
         position = Position.of(x, y, direction);
         this.listobstacle=listobstacle;
         this.portee=portee;
-        this.taille=taille;
-    }
+        this.taille=taille;}
 
+    public Position getPosition(){return this.position;}
+    public Integer getPortee(){return this.portee;}
+    public Set<Position> getListobstacle(){return this.listobstacle;}
 
-    public Position Avancer(Position rover, int taille){
-        switch (rover.getDirection()){
+    public Position Avancer(Position rover, int taille){     switch (rover.getDirection()){
             case NORTH: case SOUTH: return  Position.of(rover.getX(), deplacement_grille_avancer(rover.getY(),rover.getDirection(),taille), rover.getDirection());
             case EAST: case WEST: return  Position.of(deplacement_grille_avancer(rover.getX(),rover.getDirection(),taille), rover.getY(), rover.getDirection());
         } return rover;}
 
-    public Position Reculer(Position rover,int taille){
-        switch (rover.getDirection()){
+    public Position Reculer(Position rover,int taille){        switch (rover.getDirection()){
             case NORTH: case SOUTH: return  Position.of(rover.getX(), deplacement_grille_reculer(rover.getY(),rover.getDirection(),taille), rover.getDirection());
             case EAST: case WEST: return  Position.of(deplacement_grille_reculer(rover.getX(),rover.getDirection(),taille), rover.getY(), rover.getDirection());
         } return rover;}
 
-    public Position Rotation_gauche(Position rover){
-        switch (rover.getDirection()){
+    public Position Rotation_gauche(Position rover){        switch (rover.getDirection()){
             case NORTH: return  Position.of(rover.getX(), rover.getY(), Direction.WEST);
             case SOUTH: return  Position.of(rover.getX(), rover.getY(), Direction.EAST);
             case EAST:  return  Position.of(rover.getX(), rover.getY(), Direction.NORTH);
-            case WEST: return   Position.of(rover.getX(), rover.getY(), Direction.SOUTH);
-        } return rover;
+            case WEST: return   Position.of(rover.getX(), rover.getY(), Direction.SOUTH);} return rover;
     }
 
     public Position Rotation_droite(Position rover){
@@ -43,20 +40,15 @@ public class MarsRoverImpl implements MarsRover {
             case NORTH: return  Position.of(rover.getX(), rover.getY(), Direction.EAST);
             case SOUTH: return  Position.of(rover.getX(), rover.getY(), Direction.WEST);
             case EAST:  return  Position.of(rover.getX(), rover.getY(), Direction.SOUTH);
-            case WEST: return   Position.of(rover.getX(), rover.getY(), Direction.NORTH);
-        } return rover;}
+            case WEST: return   Position.of(rover.getX(), rover.getY(), Direction.NORTH);} return rover;}
 
     public int deplacement_grille_avancer(int i, Direction direction, int taille){
-        switch (direction){
-            case NORTH: case EAST: if(i==taille/2){return -taille/2+1;} else return i+1;
-            case SOUTH: case WEST: if(i==-taille/2+1){return taille/2;} else return i-1;
-        } return i;}
+        switch (direction){            case NORTH: case EAST: if(i==taille/2){return -taille/2+1;} else return i+1;
+                                       case SOUTH: case WEST: if(i==-taille/2+1){return taille/2;} else return i-1;} return i;}
 
     public int deplacement_grille_reculer(int i, Direction direction, int taille){
-        switch (direction){
-            case SOUTH: case WEST: if(i==taille/2){return -taille/2+1;} else return i+1;
-            case NORTH: case EAST: if(i==-taille/2+1){return taille/2;} else return i-1;
-        } return i;}
+        switch (direction){            case SOUTH: case WEST: if(i==taille/2){return -taille/2+1;} else return i+1;
+                                       case NORTH: case EAST: if(i==-taille/2+1){return taille/2;} else return i-1;} return i;}
 
     public static Set<Position> laser(int portee, Position rover, Set<Position> listobstacle,int taille) {
         if(listobstacle!= null){ for (Position i : listobstacle) { for (int j = 1; j <= portee; j++) { int j_modif=j;
@@ -102,7 +94,7 @@ public class MarsRoverImpl implements MarsRover {
                 case 'b': if (detectobstacle_backward(new_position,new_listobstacle,taille)==0){new_position=Reculer(new_position, taille);}break;
                 case 'l': new_position=Rotation_gauche(new_position); break;
                 case 'r': new_position=Rotation_droite(new_position); break;
-                case 's':  new_listobstacle = laser(portee,new_position,new_listobstacle,taille);break;
+                case 's':  new_listobstacle = laser(portee,new_position,new_listobstacle,taille); this.listobstacle=new_listobstacle; break;
                 default: break;
             }      }   return new_position; }
 }
